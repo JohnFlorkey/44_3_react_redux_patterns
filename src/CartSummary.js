@@ -9,9 +9,9 @@ function CartSummary() {
 
   return (
     <h3 className="mt-2 mb-4 text-center">
-      {`Cart Summary: ${displayCurrency(cartSummary.cost)} for ${
-        cartSummary.quantity
-      } items`}
+      {`Cart Summary: ${cartSummary.quantity} items for ${displayCurrency(
+        cartSummary.cost
+      )}`}
     </h3>
   );
 }

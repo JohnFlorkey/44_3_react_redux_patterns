@@ -6,7 +6,6 @@ import { displayCurrency } from "./helpers/utilities";
 import { addToCart, removeFromCart } from "./helpers/actions";
 import { useDispatch } from "react-redux";
 import { CartPlus, CartDash } from "react-bootstrap-icons";
-import CartSummary from "./CartSummary";
 import "./ProductDetail.css";
 
 function ProductDetail() {
@@ -19,7 +18,6 @@ function ProductDetail() {
 
   return (
     <div>
-      <CartSummary />
       <Card className="ProductDetail-Card">
         <Card.Img src={product.image_url} />
         <Card.Body>

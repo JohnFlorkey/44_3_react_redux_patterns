@@ -1,8 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Button, Col, Row } from "react-bootstrap";
 import Product from "./Product";
-import CartSummary from "./CartSummary";
 import { getProductList } from "./helpers/utilities";
+import { Link } from "react-router-dom";
 
 function ProductList() {
   const { products } = useSelector((store) => store);
@@ -10,7 +11,6 @@ function ProductList() {
 
   return (
     <div>
-      <CartSummary />
       {list.map((p) => (
         <Product
           key={p.productKey}
@@ -19,6 +19,13 @@ function ProductList() {
           price={p.productObj.price}
         />
       ))}
+      <Row>
+        <Col>
+          <Link to="/cart">
+            <Button className="btn btn-success">Go To Cart</Button>
+          </Link>
+        </Col>
+      </Row>
     </div>
   );
 }

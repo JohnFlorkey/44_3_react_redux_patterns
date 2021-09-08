@@ -6,7 +6,7 @@ import { addToCart, removeFromCart } from "./helpers/actions";
 import { Link } from "react-router-dom";
 import { displayCurrency } from "./helpers/utilities";
 
-function Product({ productKey, name, price }) {
+function Product({ productKey, name, price, quantity }) {
   const dispatch = useDispatch();
   const cartAdd = () => dispatch(addToCart(productKey, name, price));
   const cartRemove = () => dispatch(removeFromCart(productKey));
@@ -18,6 +18,10 @@ function Product({ productKey, name, price }) {
             <Link to={`/products/${productKey}`}>{name}</Link>
           </Col>
           <Col>{`${displayCurrency(price)}`}</Col>
+          {quantity ? <Col>{`Qty: ${quantity}`}</Col> : null}
+          {quantity ? (
+            <Col>{`Item Total: ${displayCurrency(quantity * price)}`}</Col>
+          ) : null}
           <Col>
             <Button onClick={cartAdd} className="mx-2 btn btn-sm btn-primary">
               <CartPlus />

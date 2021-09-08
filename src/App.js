@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { Container } from "react-bootstrap";
 import rootReducer from "./reducers/rootReducer";
 import Routes from "./Routes";
+import CartSummary from "./CartSummary";
 
 function App() {
   const store = createStore(
@@ -15,6 +16,7 @@ function App() {
     <Provider store={store}>
       <Container>
         <h1 className="text-center">SHOPLY</h1>
+        <CartSummary />
         <Routes />
       </Container>
     </Provider>
