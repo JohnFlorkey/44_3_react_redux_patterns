@@ -8,7 +8,7 @@ export function getProductList(products) {
   return list;
 }
 
-function getCartTotals(cart) {
+export function getCartSummary(cart) {
   if (cart.length) {
     return cart.reduce(
       (prev, curr) => ({
@@ -22,10 +22,6 @@ function getCartTotals(cart) {
   }
 }
 
-export function getCartSummary(cart) {
-  const cartTotals = getCartTotals(cart);
-  return {
-    ...cartTotals,
-    cost: (Math.round(cartTotals.cost * 100) / 100).toFixed(2),
-  };
+export function displayCurrency(price) {
+  return `$${(Math.round(price * 100) / 100).toFixed(2)}`;
 }

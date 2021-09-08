@@ -2,7 +2,11 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import Product from "./Product";
-import { getProductList, getCartSummary } from "./helpers/utilities";
+import {
+  getProductList,
+  getCartSummary,
+  displayCurrency,
+} from "./helpers/utilities";
 
 function ProductList() {
   const { products, cart } = useSelector((store) => store);
@@ -12,7 +16,9 @@ function ProductList() {
   return (
     <div>
       <h2 className="mt-2 mb-4">
-        {`Cart Summary: $${cartDisplay.cost} for ${cartDisplay.quantity} items`}
+        {`Cart Summary: ${displayCurrency(cartDisplay.cost)} for ${
+          cartDisplay.quantity
+        } items`}
       </h2>
       <Container>
         {list.map((p) => (

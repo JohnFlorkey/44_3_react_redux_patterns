@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Button, Card, Col, Row } from "react-bootstrap";
 import { CartPlus, CartDash } from "react-bootstrap-icons";
 import { addToCart, removeFromCart } from "./helpers/actions";
+import { displayCurrency } from "./helpers/utilities";
 
 function Product({ productKey, name, price }) {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ function Product({ productKey, name, price }) {
       <Card.Body>
         <Row>
           <Col>{name}</Col>
-          <Col>{`$${price}`}</Col>
+          <Col>{`${displayCurrency(price)}`}</Col>
           <Col>
             <Button onClick={cartAdd} className="mx-2 btn btn-sm btn-primary">
               <CartPlus />
