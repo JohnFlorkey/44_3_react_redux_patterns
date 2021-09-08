@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Button, Card, Col, Row } from "react-bootstrap";
 import { CartPlus, CartDash } from "react-bootstrap-icons";
 import { addToCart, removeFromCart } from "./helpers/actions";
+import { Link } from "react-router-dom";
 import { displayCurrency } from "./helpers/utilities";
 
 function Product({ productKey, name, price }) {
@@ -13,7 +14,9 @@ function Product({ productKey, name, price }) {
     <Card>
       <Card.Body>
         <Row>
-          <Col>{name}</Col>
+          <Col>
+            <Link to={`/products/${productKey}`}>{name}</Link>
+          </Col>
           <Col>{`${displayCurrency(price)}`}</Col>
           <Col>
             <Button onClick={cartAdd} className="mx-2 btn btn-sm btn-primary">
